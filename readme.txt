@@ -1,1 +1,1 @@
-hello black
+Welcome to our dbms project. We're doing an employee management system.
