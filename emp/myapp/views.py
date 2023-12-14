@@ -19,6 +19,6 @@ def loginUser(request):
     else:
         return render(request, 'myapp/login.html')
 def home(request):
-    return HttpResponse('home')
+    return render(request, 'myapp/Home.html')
 def add_emp(request):
     return render(request, 'myapp/ADd.html')
