@@ -17,13 +17,7 @@ class emp(models.Model):
   def __str__(self):
      return self.empname
   
-class login(models.Model):
-  uid=models.CharField(max_length=20)
-  password=models.CharField(max_length=20)
 
-
-  def __str__(self):
-     return self.uid
   
 
 

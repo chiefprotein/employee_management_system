@@ -12,8 +12,6 @@ from .models import manager
 
 admin.site.register(manager)
 
-from .models import login
 
-admin.site.register(login)
 
 
