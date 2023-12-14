@@ -22,3 +22,11 @@ def home(request):
     return render(request, 'myapp/Home.html')
 def add_emp(request):
     return render(request, 'myapp/ADd.html')
+def view_emp(request):
+    return HttpResponse('view_emp')
+def grievances(request):
+    return HttpResponse('grievances')
+def manager_info(request):
+    return HttpResponse('manager_info')
+def department(request):
+    return HttpResponse('department')
