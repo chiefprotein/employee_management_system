@@ -13,7 +13,7 @@ def loginUser(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.success(request, ("Poyi marayadiku enter cheyyada myre.."))
+            messages.success(request, ("Invalid username or password"))
             return redirect('loginuser')
 
     else:
