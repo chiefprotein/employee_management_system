@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import emp
-from datetime import datetime
-from django.urls import reverse
 from .forms import *
 
 # Create your views here.
@@ -46,4 +44,8 @@ def grievances(request):
 def manager_info(request):
     return render(request, 'myapp/Managers.html')
 def department(request):
-    return render(request, 'myapp/departm.html')
+    employees = []
+    if request.method == "POST":
+        selected_department = request.POST.get("Department")
+        employees = emp.objects.filter(department=selected_department)
+    return render(request, 'myapp/departm.html', {'employees': employees})
