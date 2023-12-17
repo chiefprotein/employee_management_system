@@ -57,3 +57,37 @@ def department(request):
             
 
     return render(request, 'myapp/departm.html', {'form': form, 'employees': employees})
+def update_employee(request, empid):
+    employee = Employee, empid=empid
+
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST, instance=employee)
+        if form.is_valid():
+            form.save()
+            return redirect('view_emp')  # Redirect to the employee list view
+    else:
+        form = EmployeeForm(instance=employee)
+
+    return render(request, 'update_employee.html', {'form': form, 'employee': employee})
+
+
+def delete_employee(request, emp_id):
+    if request.method == 'POST':
+        # Extract the employee ID from the form submission
+        # You can use the emp_id parameter directly in your case
+        employee_id_to_delete = emp_id
+
+        # Get the employee by ID
+        try:
+            employee = emp.objects.get(pk=employee_id_to_delete)
+        except emp.DoesNotExist:
+            return HttpResponse("Employee not found.", status=404)
+
+        # Delete the employee
+        employee.delete()
+
+        # Redirect to the employee list page or any other desired page
+        return redirect('view_emp')
+
+    # Handle other cases, e.g., GET requests
+    return HttpResponse("Invalid request method.", status=400)
