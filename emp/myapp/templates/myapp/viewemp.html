@@ -120,7 +120,24 @@
         background-image:linear-gradient(135deg,rgb(0, 221, 255),rgb(255, 0, 100));
         margin-top: 20px;
     }
+    table {
+            border-collapse: collapse;
+            width: 100%;
+        }
 
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
 </style>
 <body>
     <script>
@@ -164,7 +181,38 @@
                  <h1 style=" margin-top:25px;text-align: center;">Employee Details</h1><br>
                 <form action="#" methods="get">
                 <div style="display:flex; border-radius: 10;">
-                    
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Name</th>
+                                <th>Date of Birth</th>
+                                <th>Date of Joining</th>
+                                <th>Department</th>
+                                <th>Age</th>
+                                <th>Address</th>
+                                <th>Salary</th>
+                                <th>Gender</th>
+                                <th>Phone Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for employee in employees %}
+                            <tr>
+                                <td>{{ employee.empid }}</td>
+                                <td>{{ employee.empname }}</td>
+                                <td>{{ employee.dateb }}</td>
+                                <td>{{ employee.datej }}</td>
+                                <td>{{ employee.department }}</td>
+                                <td>{{ employee.age }}</td>
+                                <td>{{ employee.address }}</td>
+                                <td>{{ employee.salary }}</td>
+                                <td>{{ employee.gender }}</td>
+                                <td>{{ employee.phno }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </form>
             </div>
