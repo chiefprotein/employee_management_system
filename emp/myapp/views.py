@@ -38,7 +38,9 @@ def add_emp(request):
 
     return render(request, 'myapp/ADd.html',context)
 def view_emp(request):
-    return render(request, 'myapp/viewemp.html')
+    employees = emp.objects.all()
+    return render(request, 'myapp/viewemp.html', {'employees': employees})
+
 def grievances(request):
     return HttpResponse('grievances')
 def manager_info(request):
