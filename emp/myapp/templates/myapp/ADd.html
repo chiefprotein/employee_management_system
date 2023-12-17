@@ -151,47 +151,41 @@
                    <b >Logout</b>
                 </div></a>
         </div>
-            
+
         </div>
             <div class="main">
                  <h1 style="margin-left: 40px; margin-top:35px ;">Employee Details</h1><br>
-                <form action="#" methods="get">
+                <form action="" method="POST">
+                    {% csrf_token %}
                 <div style="display:flex; border-radius: 10;">
                     <div class="Coloumn left " style="width: 50%;">
                         <label>Emp ID </label><br>
-                        <input  type="text" id="Emp ID"><br><br>
+                       {{form.empid}}
                         <label>Date Of Birth</label><br>
-                        <input type="date" id="DOB"><br><br>
+                        {{form.dateb}}
                         <label>Address</label><br>
-                        <input type="text" id="Address"><br><br>
+                        {{form.address}}
                         <label>Date of Joining</label><br>
-                        <input type="date" id="DOJ"><br><br>
+                        {{form.datej}}
                         <label>Age</label><br>
-                        <input type="text" id="Age"><br>
-                        <input style="background-image:linear-gradient(185deg,rgb(90, 219, 193),rgb(159, 9, 218));  margin-top: 15px; color: rgb(240, 255, 251); width: 100px; height: 36px" name="but" type="submit" value="Submit" onclick="showAlert()">
+                        {{form.age}}
+                        <input style="background-image:linear-gradient(185deg,rgb(90, 219, 193),rgb(159, 9, 218));  margin-top: 15px; color: rgb(240, 255, 251); width: 100px; height: 36px" name="but" type="submit" value="Submit">
                         
                     </div>
                     <div class="Coloumn right" style="width: 50%; margin-right: 50px;">
                         <label>Full Name</label><br>
-                        <input  type="Full Name" id="Full Name"><br><br>
+                        {{form.empname}}
                         <label>Gender</label><br>
-                        <label><input style="width:5%; margin-left:25px ;" name="Sex" type="radio" value="Male">Male</label>
-                        <label><input style="margin-left:10%; width:5%" name="Sex" type="radio" value="Female">Female</label>
-                        <label><input style="margin-left:10%; width:5%" name="Sex" type="radio" value="Other">Other</label><br><br>
+                        {{form.gender}}
+                        <br><br>
                         <label>Phone No</label><br>
-                        <input type="text" id="Phone No"><br><br>
+                        {{form.phno}}
                         <label>Department</label><br>
-                        <select style="width:86%" name="Department" id="Department"><br><br>
-                            <option style="color: rgb(180, 36, 36);" value="select">--Choose Option--</option>
-                            <option value="Coding">Coding</option>
-                            <option value="Debug">Debugging</option>
-                            <option value="Testing">Testing</option>
-                            <option value="Animate">Animation</option>
-                            <option value="Design">Design</option>
-                        </select><br><br>
+                        {{form.department}}
+                        <br><br>
                         <label>Salary</label><br>
-                        <input type="text" id="Salary"><br>
-
+                        {{form.salary}}
+                     {{form.errors}}
                     </div>
                 </div>
                 <form>
