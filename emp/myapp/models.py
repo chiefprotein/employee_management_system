@@ -9,9 +9,9 @@ class emp(models.Model):
   dateb=models.DateField(null=True)
   datej=models.DateField(null=True)
   department=models.CharField(max_length=150,null=True)
-  age=models.IntegerField(max_length=2,null=True)
+  age=models.IntegerField(null=True)
   address=models.CharField(max_length=300,null=True)
-  salary=models.IntegerField(max_length=10,null=True)
+  salary=models.IntegerField(null=True)
   position=models.CharField(max_length=100,null=True)
   
   def __str__(self):
