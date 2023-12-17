@@ -29,4 +29,4 @@ def grievances(request):
 def manager_info(request):
     return HttpResponse('manager_info')
 def department(request):
-    return HttpResponse('department')
+    return render(request, 'myapp/departm.html')
