@@ -44,8 +44,16 @@ def grievances(request):
 def manager_info(request):
     return render(request, 'myapp/Managers.html')
 def department(request):
-    employees = []
+    form = DepartmentForm(request.POST or None)
+    employees = emp.objects.all()
+
     if request.method == "POST":
-        selected_department = request.POST.get("Department")
-        employees = emp.objects.filter(department=selected_department)
-    return render(request, 'myapp/departm.html', {'employees': employees})
+        if form.is_valid():
+            selected_department = form.cleaned_data.get("department")
+            if selected_department != 'select':
+                employees = emp.objects.filter(department=selected_department)
+        else:
+            print("hi")
+            
+
+    return render(request, 'myapp/departm.html', {'form': form, 'employees': employees})

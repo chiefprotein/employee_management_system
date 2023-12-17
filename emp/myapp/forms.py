@@ -16,3 +16,11 @@ class EmployeeForm(ModelForm):
             'datej' : DateInput(),
         }
 
+class DepartmentForm(forms.Form):
+    department = forms.ChoiceField(choices=[('select', '--Choose Option--'),
+                                           ('Coding', 'Coding'),
+                                           ('Debug', 'Debugging'),
+                                           ('Testing', 'Testing'),
+                                           ('Animate', 'Animation'),
+                                           ('Design', 'Design')])
+

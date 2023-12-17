@@ -27,6 +27,21 @@
         box-shadow: 0px 10px 20px rgb(0 0 0/0.5);
         padding-top: 5px;
     }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
 </style>
 
 <div>
@@ -50,76 +65,40 @@
     </div>
     <div class="main">
         <h1 style="margin-left: 40px; margin-top:35px ; margin-bottom:50px  ;">Department Information</h1><br>
-        <form action="" method="post">
+        <form method="post">
             {% csrf_token %}
-            <label style="margin-left: 50px;font-size: 27px;" for="Department">Department</label><br>
-            <input type="text" style="width:75%;height:25px ; margin-left: 52px;margin-top: 10px;" name="Department" id="Department" placeholder="--Enter Department--"><br><br>
-            <input type="submit" value="Submit" style="margin-left: 50px;">
+            {{ form.as_p }}
+            <input type="submit" value="Submit">
         </form>
-        <div id="employeeList" style="display: none; margin-left: 50px;">
-            <div>Number of employees: {{ employees|length }}</div>
-            <p>Number of employees: {{ employees|length }}</p>
-            <pre>{{ employees }}</pre>
-            {% if employees %}
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Employee ID</th>
-                            <th>Name</th>
-                            <th>Salary</th>
-                            <th>Phone Number</th>
-                        </tr>
-                    </thead>
-                    <tbody> 
-                        {% for employee in employees %}
-                            <tr>
-                                <td>{{ employee.empid }}</td>
-                                <td>{{ employee.empname }}</td>
-                                <td>{{ employee.salary }}</td>
-                                <td>{{ employee.phno }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            {% else %}
-                <p>No employees found.</p>
-            {% endif %}
-        </div>
+        
+        {% if employees %}
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Salary</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for employee in employees %}
+                <tr>
+                    <td>{{ employee.empid }}</td>
+                    <td>{{ employee.empname }}</td>
+                    <td>{{ employee.salary }}</td>
+                    <td>{{ employee.phno }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No employees found.</p>
+        {% endif %}
     </div>
     
 </div>
 
-<script>
-    function showEmployees() {
-        var selectedDepartment = document.getElementById("Department").value;
-        var employeeList = document.getElementById("employeeList");
-
-        // Replace the following lines with your actual logic to fetch and display employees
-        var employees = getEmployeesByDepartment(selectedDepartment);
-        var fontSize = "larger"; // Set a common font size for all departments
-        employeeList.innerHTML = `Employees in ${selectedDepartment}:<br><br>${formatEmployees(employees, fontSize)}`;
-        employeeList.style.display = "block";
-    }
-
-    function formatEmployees(employees, fontSize) {
-        // Format the employee names with the specified font size
-        return employees.map(employee => `<span style="font-size: ${fontSize};">${employee}</span>`).join("<br><br>");
-    }
-
-    function getEmployeesByDepartment(department) {
-        // Replace this with your actual logic to fetch employees based on the department
-        // For now, using dummy data
-        var employeeData = {
-            "Coding": ["Employee 1", "Employee 2"],
-            "Debug": ["Employee 3", "Employee 4"],
-            "Testing": ["Employee 5", "Employee 6"],
-            "Animate": ["Employee 7", "Employee 8"],
-            "Design": ["Employee 9", "Employee 10"]
-        };
-
-        return employeeData[department] || [];
-    }
-</script>
 
 <div class="footer" style="text-align: center ;color:rgb(25, 24, 24);padding-top:5px ;">© 2021-2025 JKG. All rights Reserved. Developed by JGS1</div>
 
