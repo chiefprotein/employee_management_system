@@ -32,8 +32,9 @@
 <div>
     <div class="header">
         <div class="title" style="width: 700px">
-            <h1 style="font-family: 'Times New Roman', Times, serif;font-size: 45px;color: aliceblue;text-shadow: 2px 2px 6px black;;"><span>E</span>mployee <span>M</span>anagement <span>S</span>ystem</h1><br>
-        </div>
+        <div style="width: 800px;">
+            <h1 style="font-family: 'Times New Roman', Times, serif;font-size: 45px;color: aliceblue;text-shadow: 2px 2px 6px black;margin-left:-px ;"><span>E</span>mployee <span>M</span>anagement <span>S</span>ystem - <span>J</span><span>K</span><span>G</span></h1><br>
+        </div></div>
         <div class="some" style="width: 400px;height:85px;margin-left: 375px;  display: flex;">
             <a style="text-decoration: none;" href="{% url 'home' %}">
                 <div class="Home" style="padding-top: 45px;padding-left: 12px;font-size:30px ;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: aliceblue;">
@@ -85,6 +86,41 @@
             {% endif %}
         </div>
     </div>
-    <div class="footer" style="text-align: center ;color:rgb(25, 24, 24);padding-top:5px ;">© 2021-2025 Jenil Benny. All rights Georged. Developed by JGS1</div>
+    
 </div>
+
+<script>
+    function showEmployees() {
+        var selectedDepartment = document.getElementById("Department").value;
+        var employeeList = document.getElementById("employeeList");
+
+        // Replace the following lines with your actual logic to fetch and display employees
+        var employees = getEmployeesByDepartment(selectedDepartment);
+        var fontSize = "larger"; // Set a common font size for all departments
+        employeeList.innerHTML = `Employees in ${selectedDepartment}:<br><br>${formatEmployees(employees, fontSize)}`;
+        employeeList.style.display = "block";
+    }
+
+    function formatEmployees(employees, fontSize) {
+        // Format the employee names with the specified font size
+        return employees.map(employee => `<span style="font-size: ${fontSize};">${employee}</span>`).join("<br><br>");
+    }
+
+    function getEmployeesByDepartment(department) {
+        // Replace this with your actual logic to fetch employees based on the department
+        // For now, using dummy data
+        var employeeData = {
+            "Coding": ["Employee 1", "Employee 2"],
+            "Debug": ["Employee 3", "Employee 4"],
+            "Testing": ["Employee 5", "Employee 6"],
+            "Animate": ["Employee 7", "Employee 8"],
+            "Design": ["Employee 9", "Employee 10"]
+        };
+
+        return employeeData[department] || [];
+    }
+</script>
+
+<div class="footer" style="text-align: center ;color:rgb(25, 24, 24);padding-top:5px ;">© 2021-2025 JKG. All rights Reserved. Developed by JGS1</div>
+
 </html>

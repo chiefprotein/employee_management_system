@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html style="height:100%;  background-color: rgb(211, 242, 237); font-family: Arial, Helvetica, sans-serif;">
 <head><title>Home Page</title></head>
 <style>
@@ -275,7 +276,7 @@
     
 <div class="header">
     <div class="title" style="width: 700px">
-    <h1 style=" font-family: 'Times New Roman', Times, serif;font-size: 45px;color: aliceblue;text-shadow: 2px 2px 6px black;;"><span>E</span>mployee <span>M</span>anagment <span>S</span>ystem</h1><br>
+    <h1 style=" font-family: 'Times New Roman', Times, serif;font-size: 45px;color: aliceblue;text-shadow: 2px 2px 6px black;;"><span>E</span>mployee <span>M</span>anagment <span>S</span>ystem - <span>J</span><span>K</span><span>G</span></h1><br>
 </div>
 <div class="some" style="width: 400px;height:85px;margin-left: 375px;  display: flex;">
     <a style="text-decoration: none;" href="{% url 'home' %}">
@@ -295,19 +296,19 @@
                 <div class="jerin" style="height: 70px;padding-top: 25px;">
                     <h2 style=" font-family:Arial, Helvetica, sans-serif;font-size: 25px;color: aliceblue;text-shadow: 2px 2px 6px black;">Important Links</h2><br>
                 </div>
-                <a href="https://www.rajagiritech.ac.in/home/Academics/rsms.asp" style="margin-left: 40px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 20px;">✪RSMS</a><br><br>
+                <a href="{% static 'ieee-code-of-ethics.pdf'%}" style="margin-left: 40px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 20px;">✪IEEE CODE OF ETHICS</a><br><br>
                 <hr/ style="margin-bottom:15px ;">
-                <a href="https://www.rajagiritech.ac.in/stud/ktu/Student/Academic_Calendar.asp" style=" margin-left: 40px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 20px;">✪Academic Calender</a>
+                <a href="https://github.com/chiefprotein/employee_management_system" style=" margin-left: 40px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 20px;">✪SOURCE CODE</a>
 
             </div>
             <div class="leftbot">
                 <div class="jerin" style="height: 50px;padding-top: 25px;">
                     <h2 style=" font-family:Arial, Helvetica, sans-serif;font-size: 25px;color: aliceblue;text-shadow: 2px 2px 6px black;margin-top: -5px;">Vision And Mission</h2><br>
                 </div>
-                <h4 id="vismis" style="margin-bottom: 20px;">Vision:</h4>
-                <p style="margin-left: 15px;margin-top:-8px ;   font-family: 'Times New Roman', Times, serif;">The vison of this Employee managment system is to provide good marks for the managers of this project.</p><br>
-                <h4 id="vismis"  style="margin-bottom: 20px;">Mission:</h4>
-                <p style="margin-left:15px ;margin-top:-8px; font-family: 'Times New Roman', Times, serif;">The main vision of this shit is to satisfy Mrs Saritha S,Mrs Jomina john and Mr paula Augistine.</p>
+                <h4 id="vismis" style="margin-bottom: 20px;margin-top: -5px;">Vision:</h4>
+                <p style="margin-left: 15px;margin-top:-8px ;   font-family: 'Times New Roman', Times, serif;">To revolutionize workforce management through innovative solutions, empowering organizations to thrive in a dynamic and connected world.</p><br>
+                <h4 id="vismis"  style="margin-bottom: 20px;margin-top: -15px;">Mission:</h4>
+                <p style="margin-left:15px ;margin-top:-5px; font-family: 'Times New Roman', Times, serif;">Empower businesses with our cutting-edge Employee Management System, fostering efficiency, collaboration, and growth. We are committed to providing seamless, user-centric solutions that elevate the employee experience and drive organizational success.</p>
             </div>
         </div>
         
@@ -370,7 +371,7 @@
                 
         </div>
 </div>
-<div class="footer" style="text-align: center ;color:whitesmoke;padding-top:5px ;">© 2021-2025 Jenil Benny. All rights Georged. Developed by JGS1</div>
+<div class="footer" style="text-align: center ;color:whitesmoke;padding-top:5px ;">© 2021-2025 JKG. All rights Reserved. Developed by JGS1</div>
 </body>
 
 </html>
