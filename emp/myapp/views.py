@@ -38,10 +38,10 @@ def add_emp(request):
 
     return render(request, 'myapp/ADd.html',context)
 def view_emp(request):
-    return HttpResponse('view_emp')
+    return render(request, 'myapp/viewemp.html')
 def grievances(request):
     return HttpResponse('grievances')
 def manager_info(request):
-    return HttpResponse('manager_info')
+    return render(request, 'myapp/Managers.html')
 def department(request):
     return render(request, 'myapp/departm.html')

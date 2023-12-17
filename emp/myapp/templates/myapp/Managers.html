@@ -83,13 +83,13 @@
         width: 100vx;
         background-image:linear-gradient(135deg,rgb(0, 221, 255),rgb(255, 0, 100));
         padding-top: 5px;
-        padding-left: 23px;
+        padding-left: 17px;
         display: flex;}
     .main{
         background-color: rgb(248, 244, 244);   
-        width: 50%;
+        width: 60%;
         height:580px;
-        margin-left:25%;
+        margin-left:20%;
         margin-top: 60px;
         border-radius: 10px;
         box-shadow: 0px 10px 20px rgb(0 0 0/0.5);
@@ -139,7 +139,7 @@
     <div>
         <div class="header">
             <div class="title" style="width: 700px">
-            <h1 style=" font-family: 'Times New Roman', Times, serif;font-size: 45px;color: aliceblue;text-shadow: 2px 2px 6px black;;"><span>E</span>mployee <span>M</span>anagment <span>S</span>ystem</h1><br>
+            <h1 style=" font-family: 'Times New Roman', Times, serif;font-size: 45px; margin-left:-15px; ;  color: aliceblue;text-shadow: 2px 2px 6px black; ;"><span>E</span>mployee <span>M</span>anagment <span>S</span>ystem - <span>J</span><span>G</span><span>K</span></h1><br>
         </div>
         <div class="some" style="width: 400px;height:85px;margin-left: 375px;  display: flex;">
             <a style="text-decoration: none;" href="{% url 'home' %}">
@@ -151,48 +151,18 @@
                    <b >Logout</b>
                 </div></a>
         </div>
-
         </div>
-            <div class="main">
-                 <h1 style="margin-left: 40px; margin-top:35px ;">Employee Details</h1><br>
-                <form action="" method="POST">
-                    {% csrf_token %}
-                <div style="display:flex; border-radius: 10;">
-                    <div class="Coloumn left " style="width: 50%;">
-                        <label>Emp ID </label><br>
-                       {{form.empid}}<br>
-                        <label>Date Of Birth</label><br>
-                        {{form.dateb}}<br>
-                        <label>Address</label><br>
-                        {{form.address}}<br>
-                        <label>Date of Joining</label><br>
-                        {{form.datej}}<br>
-                        <label>Age</label><br>
-                        {{form.age}}
-                        <input style="background-image:linear-gradient(185deg,rgb(90, 219, 193),rgb(159, 9, 218));  margin-top: 15px; color: rgb(240, 255, 251); width: 100px; height: 36px" name="but" type="submit" value="Submit">
-                        
-                    </div>
-                    <div class="Coloumn right" style="width: 50%; margin-right: 50px;">
-                        <label>Full Name</label><br>
-                        {{form.empname}}
-                        <label>Gender</label><br>
-                        {{form.gender}}
-                        <br><br>
-                        <label>Phone No</label><br>
-                        {{form.phno}}
-                        <label>Department</label><br>
-                        {{form.department}}
-                        <br><br>
-                        <label>Salary</label><br>
-                        {{form.salary}}
-                     {{form.errors}}
-                    </div>
-                </div>
-                <form>
-            </div>
+            
     </div>
-</div>
-<div class="footer" style="text-align: center ;color:whitesmoke;padding-top:5px ;">© 2021-2025 Jenil Benny. All rights Georged. Developed by JGS1</div>
+            <div class="main">
+                 <h1 style=" margin-top:35px;text-align: center;">Manager Details</h1><br>
+                <form action="#" methods="get">
+                <div style="display:flex; border-radius: 10;">
+                    
+                </div>
+            </form>
+            </div>
+<div class="footer" style="text-align: center ;color:whitesmoke;padding-top:5px ;">© 2021-2025 JKG. All rights Reserved. Developed by JGS1</div>
 </body>
 
 </html>
