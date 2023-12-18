@@ -5,7 +5,6 @@ from django.contrib import messages
 from .models import emp
 from .models import manager
 from .forms import *
-from django.urls import reverse
 
 # Create your views here.
 def loginUser(request):
@@ -40,21 +39,10 @@ def add_emp(request):
 def view_emp(request):
     employees = emp.objects.all()
     return render(request, 'myapp/viewemp.html', {'employees': employees})
-<<<<<<< HEAD
-=======
 
-def grievances(request):
-    return HttpResponse('grievances')
-
-
-
->>>>>>> 4bc089a1d1c5f2e08827ca480af6f1b153e3cd5e
 def manager_info(request):
     manager1=manager.objects.all()
     return render(request, 'myapp/managert.html', {'manager1':manager1})
-
-
-
 
 def department(request):
     form = DepartmentForm(request.POST or None)
@@ -70,7 +58,6 @@ def department(request):
             
 
     return render(request, 'myapp/departm.html', {'form': form, 'employees': employees})
-<<<<<<< HEAD
 def update_employee(request, pk):
     employee = get_object_or_404(emp, pk=pk)
     form = EmployeeForm(instance=employee)
@@ -80,39 +67,7 @@ def update_employee(request, pk):
             form.save()
             return redirect('view_emp')  
     context = {'form':form}
-    return render(request, 'myapp/update.html', context)
-=======
-def update_emp(request,emp_id):
-    Emp=emp.objects.get(pk=emp_id)
-    print("Yes Bhai")
-    return render(request,'myapp/update.html',{
-        'Emp':Emp
-    })
-
-def do_update_emp(request,emp_id):
-    if request.method=="POST":
-        emp_name=request.POST.get("empname")
-        emp_id_temp=request.POST.get("empid")
-        emp_phone=request.POST.get("phno")
-        emp_address=request.POST.get("address")
-        emp_working=request.POST.get("emp_working")
-        emp_department=request.POST.get("deparment")
-        emp_date=request.POST.get("d")
-
-        e=emp.objects.get(pk=emp_id)
-
-        e.name=emp_name
-        e.emp_id=emp_id_temp
-        e.phone=emp_phone
-        e.address=emp_address
-        e.department=emp_department
-        if emp_working is None:
-            e.working=False
-        else:
-            e.working=True
-        e.save()
-    return redirect("/emp/home/")
->>>>>>> 4bc089a1d1c5f2e08827ca480af6f1b153e3cd5e
+    return render(request, 'myapp/ADd.html', context)
 
 
 def delete_employee(request, emp_id):
@@ -135,5 +90,3 @@ def delete_employee(request, emp_id):
 
     # Handle other cases, e.g., GET requests
     return HttpResponse("Invalid request method.", status=400)
-
-
