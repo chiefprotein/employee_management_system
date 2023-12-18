@@ -242,7 +242,9 @@
                         </form>
 
                         <!-- Update Form -->
-                        <form method="post" action="/emp/update_emp/{{ employee.id }}">
+                        
+                        
+                        <form method="post" action="{% url 'update_employee' employee.id %}">
                             {% csrf_token %}
                             <button type="submit" class="update-button">Update</button>
                         </form>

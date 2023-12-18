@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import emp
 from .forms import *
+from django.urls import reverse
 
 # Create your views here.
 def loginUser(request):
@@ -38,9 +39,6 @@ def add_emp(request):
 def view_emp(request):
     employees = emp.objects.all()
     return render(request, 'myapp/viewemp.html', {'employees': employees})
-
-def grievances(request):
-    return HttpResponse('grievances')
 def manager_info(request):
     return render(request, 'myapp/Managers.html')
 def department(request):
@@ -57,18 +55,16 @@ def department(request):
             
 
     return render(request, 'myapp/departm.html', {'form': form, 'employees': employees})
-def update_employee(request, empid):
-    employee = Employee, empid=empid
-
+def update_employee(request, pk):
+    employee = get_object_or_404(emp, pk=pk)
+    form = EmployeeForm(instance=employee)
     if request.method == 'POST':
         form = EmployeeForm(request.POST, instance=employee)
         if form.is_valid():
             form.save()
-            return redirect('view_emp')  # Redirect to the employee list view
-    else:
-        form = EmployeeForm(instance=employee)
-
-    return render(request, 'update_employee.html', {'form': form, 'employee': employee})
+            return redirect('view_emp')  
+    context = {'form':form}
+    return render(request, 'myapp/update.html', context)
 
 
 def delete_employee(request, emp_id):
