@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import emp
+from .models import manager
 from .forms import *
 
 # Create your views here.
@@ -41,8 +42,16 @@ def view_emp(request):
 
 def grievances(request):
     return HttpResponse('grievances')
+
+
+
 def manager_info(request):
-    return render(request, 'myapp/Managers.html')
+    manager1=manager.objects.all()
+    return render(request, 'myapp/managert.html', {'manager1':manager1})
+
+
+
+
 def department(request):
     form = DepartmentForm(request.POST or None)
     employees = emp.objects.all()
@@ -57,18 +66,36 @@ def department(request):
             
 
     return render(request, 'myapp/departm.html', {'form': form, 'employees': employees})
-def update_employee(request, empid):
-    employee = Employee, empid=empid
+def update_emp(request,emp_id):
+    Emp=emp.objects.get(pk=emp_id)
+    print("Yes Bhai")
+    return render(request,'myapp/update.html',{
+        'Emp':Emp
+    })
 
-    if request.method == 'POST':
-        form = EmployeeForm(request.POST, instance=employee)
-        if form.is_valid():
-            form.save()
-            return redirect('view_emp')  # Redirect to the employee list view
-    else:
-        form = EmployeeForm(instance=employee)
+def do_update_emp(request,emp_id):
+    if request.method=="POST":
+        emp_name=request.POST.get("empname")
+        emp_id_temp=request.POST.get("empid")
+        emp_phone=request.POST.get("phno")
+        emp_address=request.POST.get("address")
+        emp_working=request.POST.get("emp_working")
+        emp_department=request.POST.get("deparment")
+        emp_date=request.POST.get("d")
 
-    return render(request, 'update_employee.html', {'form': form, 'employee': employee})
+        e=emp.objects.get(pk=emp_id)
+
+        e.name=emp_name
+        e.emp_id=emp_id_temp
+        e.phone=emp_phone
+        e.address=emp_address
+        e.department=emp_department
+        if emp_working is None:
+            e.working=False
+        else:
+            e.working=True
+        e.save()
+    return redirect("/emp/home/")
 
 
 def delete_employee(request, emp_id):
@@ -91,3 +118,5 @@ def delete_employee(request, emp_id):
 
     # Handle other cases, e.g., GET requests
     return HttpResponse("Invalid request method.", status=400)
+
+
